@@ -37,6 +37,6 @@ def run_model_on_dataset(
     preds = []
     for ex in examples:
         doc = ex["document"]
-        pred = generate_summary_one(summarizer, doc, min_len, max_len)
+        pred = generate_summary_one(summarizer, doc, min_len, max_new_tokens)
         preds.append(pred)
     return preds
