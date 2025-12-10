@@ -18,12 +18,12 @@ def generate_summary_one(
     summarizer,
     text: str,
     min_len: int = 15,
-    max_len: int = 60
+    max_new_tokens: int = 80 # limit new tokens so model is not cut off
 ) -> str:
     result = summarizer(
         text,
         min_length=min_len,
-        max_length=max_len,
+        max_new_tokens=max_new_tokens,
         truncation=True
     )[0]["summary_text"]
     return result
@@ -32,7 +32,7 @@ def run_model_on_dataset(
     summarizer,
     examples: List[Dict],
     min_len: int = 15,
-    max_len: int = 60
+    max_new_tokens: int = 80
 ) -> List[str]:
     preds = []
     for ex in examples:
