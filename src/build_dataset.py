@@ -1,4 +1,3 @@
-# build_dataset.py
 from datasets import load_dataset
 import json
 import random
@@ -6,7 +5,7 @@ import random
 def clean_text(text: str) -> str:
     return " ".join(text.strip().split())
 
-def main():
+def build_dataset():
     # 1. Load dataset
     dataset = load_dataset("cnn_dailymail", "3.0.0")
 
@@ -45,6 +44,3 @@ def main():
         json.dump(examples, f, ensure_ascii=False, indent=2)
 
     print(f"Saved {len(examples)} examples to {output_path}")
-
-if __name__ == "__main__":
-    main()
