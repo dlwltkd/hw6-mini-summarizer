@@ -5,7 +5,7 @@ def load_summarizer(device: int = 0):
     """
     device:
       -1 = CPU
-       0 = first GPU (on Vessl, this is usually what you want)
+       0 = first GPU (on Vessl)
     """
     summarizer = pipeline(
         "summarization",
